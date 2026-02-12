@@ -11,7 +11,7 @@ project:
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_kolman-ic1"
+  top_module:  "tt_um_kolman_ic1"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -29,7 +29,7 @@ project:
     - "OBUF.v"
     - "VCC.v"
     - "top_dr_ff.v"
-    - "project.v"
+    - "tt_um_kolman_ic1.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
@@ -40,19 +40,19 @@ pinout:
   ui[2]: ""
   ui[3]: ""
   ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[5]: "start_i"
+  ui[6]: "clr_n_i"
+  ui[7]: "arst_n_i"
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
+  uo[0]: "dout_o[0]"
+  uo[1]: "dout_o[1]"
+  uo[2]: "dout_o[2]"
+  uo[3]: "dout_o[3]"
   uo[4]: ""
   uo[5]: ""
   uo[6]: ""
-  uo[7]: ""
+  uo[7]: "ack_o"
 
   # Bidirectional pins
   uio[0]: ""
