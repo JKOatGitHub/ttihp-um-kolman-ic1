@@ -17,6 +17,7 @@ project:
   # Source files must be in ./src and you must list each source file separately, one per line.
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
+    - "gate_c.v"
     - "BUFG.v"
     - "FDCE.v"
     - "IBUF.v"
@@ -35,8 +36,8 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
+  ui[0]: "gate_c_i0"
+  ui[1]: "gate_c_i1"
   ui[2]: ""
   ui[3]: ""
   ui[4]: ""
