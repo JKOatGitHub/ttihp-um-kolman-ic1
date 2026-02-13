@@ -21,6 +21,8 @@ module tt_um_kolman_ic1 (
   wire arst_n_i;
   wire clr_n_i;
   wire start_i;
+  wire c_o;
+
 
   assign arst_n_i = ui_in[7];
   assign clr_n_i = ui_in[6];
@@ -39,7 +41,9 @@ module tt_um_kolman_ic1 (
   //output ack_o;
   //output [3:0]dout_o;
 
-  assign uo_out = {ack_o, 3'b000, dout_o};
+  c2element i_c2element ( .i0(ui_in[0]), .i1(ui_in[1]), .o(c_o) );
+
+  assign uo_out = {ack_o, c_o, 2'b00, dout_o};
 
 
   // All output pins must be assigned. If not used, assign to 0.
@@ -48,7 +52,7 @@ module tt_um_kolman_ic1 (
   assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0, ui_in[0], ui_in[1], ui_in[2], ui_in[3], ui_in[4]};
+  wire _unused = &{ena, clk, rst_n, 1'b0, ui_in[2], ui_in[3], ui_in[4]};
 
 
 
