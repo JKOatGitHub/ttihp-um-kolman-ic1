@@ -16,34 +16,30 @@ module tt_um_kolman_ic1 (
     input  wire       rst_n     // reset_n - low to reset
 );
 
+  wire [3:0]op_i;
   wire [3:0]dout_o;
   wire ack_o;
   wire arst_n_i;
   wire clr_n_i;
   wire start_i;
-  wire c_o;
+  wire flag_o;
 
 
   assign arst_n_i = ui_in[7];
-  assign clr_n_i = ui_in[6];
-  assign start_i = ui_in[5];
+  assign clr_n_i  = ui_in[6];
+  assign start_i  = ui_in[5];
+  assign op_i     = ui_in[3:0];
 
-
-  top_asyCounter_dr_ff i_design
+  top_asyalu_dr_ff i_design
    (.arst_n_i(arst_n_i),
     .clr_n_i(clr_n_i),
     .start_i(start_i),
+    .op_i(op_i),
     .ack_o(ack_o),
-    .dout_o(dout_o));
-  //input arst_n_i;
-  //input clr_n_i;
-  //input start_i;
-  //output ack_o;
-  //output [3:0]dout_o;
+    .dout_o(dout_o),
+    .flag_o(flag_o));
 
-  c2element i_c2element ( .i0(ui_in[0]), .i1(ui_in[1]), .o(c_o) );
-
-  assign uo_out = {ack_o, c_o, 2'b00, dout_o};
+  assign uo_out = {ack_o, flag_o, 2'b00, dout_o};
 
 
   // All output pins must be assigned. If not used, assign to 0.
@@ -52,8 +48,6 @@ module tt_um_kolman_ic1 (
   assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0, ui_in[2], ui_in[3], ui_in[4]};
-
-
+  wire _unused = &{ena, clk, rst_n, ui_in[4], uio_in};
 
 endmodule
