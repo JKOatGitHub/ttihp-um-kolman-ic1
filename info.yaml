@@ -29,17 +29,17 @@ project:
     - "LUT6.v"
     - "OBUF.v"
     - "VCC.v"
-    - "top_dr_ff.v"
+    - "top_asyalu_dr_ff.v"
     - "tt_um_kolman_ic1.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "gate_c_i0"
-  ui[1]: "gate_c_i1"
-  ui[2]: ""
-  ui[3]: ""
+  ui[0]: "op_i[0]"
+  ui[1]: "op_i[1]"
+  ui[2]: "op_i[2]"
+  ui[3]: "op_i[3]"
   ui[4]: ""
   ui[5]: "start_i"
   ui[6]: "clr_n_i"
@@ -52,7 +52,7 @@ pinout:
   uo[3]: "dout_o[3]"
   uo[4]: ""
   uo[5]: ""
-  uo[6]: ""
+  uo[6]: "flag_o"
   uo[7]: "ack_o"
 
   # Bidirectional pins
