@@ -1,4 +1,4 @@
-module LUT4s7 #(
+module LUT4 #(
     parameter [15:0] INIT = 16'h2828
 )(
     input  wire I0, // Select Stage 1
